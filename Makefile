@@ -16,6 +16,7 @@ DOCKER_RUN = docker run --rm -ti \
 	-v $(PWD)/out/packages:/home/builder/packages \
 	-v $(PWD)/out/tmp/distfiles:/var/cache/distfiles \
 	-v $(PWD)/out:/home/builder/out \
+	-v $(PWD)/repo:/home/builder/repo \
 	--tmpfs /tmp \
 	"$(DOCKER_IMAGE):$(DOCKER_TAG)"
 
