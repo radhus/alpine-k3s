@@ -5,6 +5,7 @@ RUN apk add --no-cache \
     alpine-conf \
     alpine-sdk \
     apk-tools \
+    atools \
     build-base \
     busybox \
     fakeroot \

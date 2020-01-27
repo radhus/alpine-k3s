@@ -31,6 +31,9 @@ aports:
 	    --branch "$(APORTS_BRANCH)" \
 	    https://github.com/alpinelinux/aports
 
+lint: docker
+	$(DOCKER_RUN) apkbuild-lint repo/*/APKBUILD
+
 docker:
 	docker build -t "$(DOCKER_IMAGE):$(DOCKER_TAG)" .
 

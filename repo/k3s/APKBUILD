@@ -13,8 +13,6 @@ url="https://k3s.io"
 arch="all"
 license="Apache-2.0"
 options="chmod-clean !check" # No test suite from upstream
-depends=""
-makedepends=""
 subpackages="$pkgname-openrc"
 source="$pkgname-$pkgver::https://github.com/rancher/k3s/releases/download/v$_pkgver/k3s
 	k3s.initd
@@ -24,7 +22,7 @@ package() {
 	install -m755 -D "$srcdir"/$pkgname-$pkgver \
 		"$pkgdir"/usr/bin/k3s
 	ln -s k3s "$pkgdir"/usr/bin/kubectl
-	
+
 	install -m755 -D "$srcdir"/k3s.initd "$pkgdir"/etc/init.d/k3s
 	install -m644 -D "$srcdir"/k3s.confd "$pkgdir"/etc/conf.d/k3s
 }
