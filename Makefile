@@ -8,6 +8,7 @@ TMPDIRS = out/image out/packages out/tmp out/tmp/distfiles keys
 
 $(TMPDIRS):
 	mkdir -p $@
+	chmod 777 $@
 
 DOCKER_RUN = docker run --rm \
 	-e PACKAGER="$(EMAIL)" \
