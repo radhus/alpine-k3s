@@ -8,7 +8,7 @@ sudo cp ${HOME}/.abuild/*.pub /etc/apk/keys/
 cd "${HOME}/repo"
 for pkg in *; do
     cd ${pkg}
-    abuild -r
+    abuild -r -s "$(mktemp -d)"
     cd ..
 done
 
