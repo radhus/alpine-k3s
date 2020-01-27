@@ -8,5 +8,6 @@ jobs:
         uses: actions/checkout@v1
       - name: Build image
         run: |
+          find . -type d -print0 | xargs -0 chmod 777
           make EMAIL=test@test.test genkeys
           make build
