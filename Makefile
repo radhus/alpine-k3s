@@ -8,8 +8,9 @@ TMPDIRS = out/image out/packages out/tmp out/tmp/distfiles keys
 
 $(TMPDIRS):
 	mkdir -p $@
+	chmod 777 $@
 
-DOCKER_RUN = docker run --rm -ti \
+DOCKER_RUN = docker run --rm \
 	-e PACKAGER="$(EMAIL)" \
 	-v $(PWD)/aports:/home/builder/aports:ro \
 	-v $(PWD)/keys:/home/builder/.abuild \
@@ -29,6 +30,9 @@ aports:
 	    --depth 1 \
 	    --branch "$(APORTS_BRANCH)" \
 	    https://github.com/alpinelinux/aports
+
+lint: docker
+	$(DOCKER_RUN) apkbuild-lint repo/*/APKBUILD
 
 docker:
 	docker build -t "$(DOCKER_IMAGE):$(DOCKER_TAG)" .
