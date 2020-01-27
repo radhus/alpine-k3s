@@ -9,7 +9,7 @@ TMPDIRS = out/image out/packages out/tmp out/tmp/distfiles keys
 $(TMPDIRS):
 	mkdir -p $@
 
-DOCKER_RUN = docker run --rm -ti \
+DOCKER_RUN = docker run --rm \
 	-e PACKAGER="$(EMAIL)" \
 	-v $(PWD)/aports:/home/builder/aports:ro \
 	-v $(PWD)/keys:/home/builder/.abuild \
