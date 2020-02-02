@@ -4,9 +4,8 @@
 # Modified to use upstream built binaries:
 #  William Johansson <radar@radhuset.org>
 pkgname=k3s
-_pkgver=1.17.2-alpha3+k3s1
-pkgver=${_pkgver/-alpha/a}
-pkgver=${pkgver/+k3s/.}
+_pkgver=1.17.2+k3s1
+pkgver=${_pkgver/+k3s/.}
 pkgrel=0
 pkgdesc="Lightweight Kubernetes. 5 less than k8s."
 url="https://k3s.io"
@@ -27,6 +26,6 @@ package() {
 	install -m644 -D "$srcdir"/k3s.confd "$pkgdir"/etc/conf.d/k3s
 }
 
-sha512sums="93f8a54823ee984ac4a134f4145a44e480ce780fbf3c51fa0c4d7b30e736d444cf48ad42b961239d86b47ed887fdf0df4633b6f7731deb271c173b1cc8e83b35  k3s-1.17.2a3.1
+sha512sums="1d1c48aa94f340ecb3bcf8004dcd67f811ae915d11704ab435a90f0b5fece46dfce426bc93a8ebd8e64e0d8a2ae5aec670590bc477c6c1d00ae656bac00ca558  k3s-1.17.2.1
 59ccd8e955e1ff0edb83ab83b09979760857dd449e96feb60c4087d770b3677404a60e28ef52f978b2084f439d7438d4b24b4c56a863e08fb9636fbf3c204fe8  k3s.initd
 dda2fc70e884ef439fece8f850d798f98d07cd431f0b8b79183f192b35f68fc7c633d3c790aae7b86ca57331212a7bb2f783131b752a4e1e71ef918469e6b944  k3s.confd"
