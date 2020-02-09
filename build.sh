@@ -23,6 +23,7 @@ cd aports/scripts
 ln -s "${HOME}/mkimg.k3s.sh" .
 
 sh ./mkimage.sh \
+    --tag "$(date +%y%m%d%H%M%S)" \
     --hostkeys \
     --outdir "${outdir}" \
     --profile k3s \
