@@ -9,5 +9,5 @@ profile_k3s() {
     kernel_cmdline="console=tty0 console=hvc0 nomodeset cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory"
     kernel_flavors="virt"
     kernel_addons="wireguard"
-    apks="alpine-base alpine-mirrors busybox chrony e2fsprogs iptables openssl openssh tzdata wireguard-tools-wg k3s"
+    apks="alpine-base alpine-mirrors busybox chrony e2fsprogs iptables nfs-utils openssl openssh tzdata wireguard-tools-wg k3s"
 }
