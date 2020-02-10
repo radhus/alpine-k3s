@@ -11,5 +11,6 @@ pidfile="/run/k3s.pid"
 depend() {
 	need net
 	need cgroups
+	want nfsclient nfsmount rpc.statd
 	after firewall
 }
