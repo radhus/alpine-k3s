@@ -1,6 +1,6 @@
 .PHONY: all docker genkeys build shell
 
-APORTS_BRANCH = 3.11-stable
+APORTS_BRANCH = 3.12-stable
 DOCKER_IMAGE = radhus/alpine-k3s-image-builder
 DOCKER_TAG = latest
 
