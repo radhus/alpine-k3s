@@ -27,8 +27,8 @@ sh ./mkimage.sh \
     --hostkeys \
     --outdir "${outdir}" \
     --profile k3s \
-    --repository http://dl-cdn.alpinelinux.org/alpine/v3.11/main \
-    --extra-repository http://dl-cdn.alpinelinux.org/alpine/v3.11/community \
+    --repository http://dl-cdn.alpinelinux.org/alpine/v3.12/main \
+    --extra-repository http://dl-cdn.alpinelinux.org/alpine/v3.12/community \
     --extra-repository "${HOME}/out/packages/repo"
 
 cp -a ${outdir}/* "${HOME}/out/image/"
