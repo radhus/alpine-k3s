@@ -1,4 +1,4 @@
-.PHONY: all docker genkeys build shell
+.PHONY: all docker genkeys build shell checksum
 
 APORTS_BRANCH = 3.12-stable
 DOCKER_IMAGE = radhus/alpine-k3s-image-builder
@@ -35,7 +35,7 @@ lint: docker
 	$(DOCKER_RUN) apkbuild-lint repo/*/APKBUILD
 
 docker:
-	docker build -t "$(DOCKER_IMAGE):$(DOCKER_TAG)" .
+	docker build --pull -t "$(DOCKER_IMAGE):$(DOCKER_TAG)" .
 
 shell: $(TMPDIRS)
 	$(DOCKER_RUN) /bin/ash
@@ -46,3 +46,6 @@ genkeys: docker $(TMPDIRS)
 
 build: docker aports $(TMPDIRS)
 	$(DOCKER_RUN) /home/builder/build.sh
+
+checksum: docker $(TMPDIRS)
+	$(DOCKER_RUN) sh -c 'cd /home/builder/repo/k3s && abuild checksum'
