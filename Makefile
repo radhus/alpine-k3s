@@ -35,7 +35,7 @@ lint: docker
 	$(DOCKER_RUN) apkbuild-lint repo/*/APKBUILD
 
 docker:
-	docker build -t "$(DOCKER_IMAGE):$(DOCKER_TAG)" .
+	docker build --pull -t "$(DOCKER_IMAGE):$(DOCKER_TAG)" .
 
 shell: $(TMPDIRS)
 	$(DOCKER_RUN) /bin/ash
