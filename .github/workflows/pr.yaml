@@ -15,3 +15,25 @@ jobs:
         run: make lint
       - name: Build image
         run: make build
+  renovate-fixups:
+    runs-on: ubuntu-latest
+    if: contains(github.actor, 'renovate')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Prepare environment
+        run: |
+          find . -type d -print0 | xargs -0 chmod 777
+          make aports
+          make EMAIL=test@test.test genkeys
+      - name: Update checksum
+        run: make checksum
+      - name: Commit updated checksums
+        id: commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update checksums
+          file_pattern: "**/APKBUILD"
+      - name: Fail job if commit was made
+        if: steps.commit.outputs.changes_detected == 'true'
+        run: "false"
