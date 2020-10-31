@@ -4,10 +4,23 @@
     ":disableRateLimiting",
     ":semanticCommitsDisabled"
   ],
+  "regexManagers": [
+    {
+      "fileMatch": ["k3s/APKBUILD$"],
+      "matchStrings": ["_pkgver=(?<currentValue>.*?)\n"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "rancher/k3s",
+      "versioningTemplate": "regex:^1\\.(?<major>\\d+)\\.(?<minor>\\d+)(-rc(?<prerelease>\\d+))?\\+k3s(?<patch>\\d+)$"
+    }
+  ],
   "packageRules": [
     {
       "packagePatterns": ["*"],
       "commitMessageTopic": "Bump {{depName}}"
+    },
+    {
+      "packageNames": ["rancher/k3s"],
+      "extractVersion": "^v(?<version>.*)$"
     }
   ]
 }
