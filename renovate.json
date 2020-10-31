@@ -13,6 +13,7 @@
       "versioningTemplate": "regex:^1\\.(?<major>\\d+)\\.(?<minor>\\d+)(-rc(?<prerelease>\\d+))?\\+k3s(?<patch>\\d+)$"
     }
   ],
+  "commitMessageAction": "",
   "packageRules": [
     {
       "packagePatterns": ["*"],
