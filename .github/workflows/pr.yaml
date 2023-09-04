@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Prepare environment
         run: |
           find . -type d -print0 | xargs -0 chmod 777
@@ -20,7 +20,7 @@ jobs:
     if: contains(github.actor, 'renovate')
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT }}
       - name: Prepare environment
