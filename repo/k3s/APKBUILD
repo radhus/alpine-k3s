@@ -4,7 +4,7 @@
 # Modified to use upstream built binaries:
 #  William Johansson <radar@radhuset.org>
 pkgname=k3s
-_pkgver=1.19.7+k3s1
+_pkgver=1.28.1+k3s1
 pkgver=${_pkgver/+k3s/.}
 pkgrel=0
 pkgdesc="Lightweight Kubernetes. 5 less than k8s."
